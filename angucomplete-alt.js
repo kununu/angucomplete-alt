@@ -227,6 +227,9 @@
 
           // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
           // Escape user input to be treated as a literal string within a regular expression
+          // Splits the user input by space and puts it on an array: ex -> 'software is an amazing thing' = ['software', 'is', 'an', 'amazing', 'thing']
+          // Joins the array above by | to be an "OR" for each term of the array on the regex.
+          // Final regex would be: '/(software|is|an|amazing|thing)/gi'
           re = new RegExp('('+str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').match(/\S+/g).join('|')+')', 'gi');
 
           matches = target.match(re);
