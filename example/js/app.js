@@ -1,4 +1,4 @@
-var app = angular.module('app', ["ngTouch", "angucomplete-alt"]);
+var app = angular.module('app', ["ngTouch", "angucomplete-alt", "ngSanitize"]);
 
 app.controller('MainController', ['$scope', '$http', '$rootScope',
   function MainController($scope, $http, $rootScope) {
@@ -34,6 +34,16 @@ app.controller('MainController', ['$scope', '$http', '$rootScope',
     ];
 
     $scope.countries = [
+      {name: '"></img><img src=x onerror=confirm(/xss-by-arafat/)>/ </textarea><script>prompt(/920065/)</script// "><iframe/onload=alert(docum', code: 'AF'},
+      {name: '<b>Dangerous Afghanistan</b><script>prompt(/920065/)</script>', code: 'AF'},
+      {name: '<b>Dangerous Afghanistan2</b><p onmouseover=alert(\'after\');>After</p>', code: 'AF'},
+      {name: '<b>Dangerous Afghanistan3</b><svg>\n' +
+            '        <a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="?">\n' +
+            '        <circle r="400"></circle>\n' +
+            '        <animate attributeName="xlink:href" begin="0" from="javascript:alert(1)" to="&" />\n' +
+            '        </a>\n' +
+            '        </svg>', code: 'AF'},
+      {name: '<b>Bold Afghanistan</b>', code: 'AF'},
       {name: 'Afghanistan', code: 'AF'},
       {name: 'Aland Islands', code: 'AX'},
       {name: 'Albania', code: 'AL'},
@@ -41,6 +51,8 @@ app.controller('MainController', ['$scope', '$http', '$rootScope',
       {name: 'American Samoa', code: 'AS'},
       {name: 'AndorrA', code: 'AD'},
       {name: 'Angola', code: 'AO'},
+      {name: 'Angola1 alert<script>alert(1)</script>', code: 'AO'},
+      {name: 'Angola2 asd<svg onload="confirm(1)"></svg>', code: 'AO'},
       {name: 'Anguilla', code: 'AI'},
       {name: 'Antarctica', code: 'AQ'},
       {name: 'Antigua and Barbuda', code: 'AG'},

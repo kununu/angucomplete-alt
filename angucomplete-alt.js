@@ -22,7 +22,7 @@
 }(window, function (angular) {
   'use strict';
 
-  angular.module('angucomplete-alt', []).directive('angucompleteAlt', ['$q', '$parse', '$http', '$sce', '$timeout', '$templateCache', '$interpolate', function ($q, $parse, $http, $sce, $timeout, $templateCache, $interpolate) {
+  angular.module('angucomplete-alt', []).directive('angucompleteAlt', ['$q', '$parse', '$http', '$sce', '$timeout', '$templateCache', '$interpolate', '$sanitize', function ($q, $parse, $http, $sce, $timeout, $templateCache, $interpolate, $sanitize) {
     // keyboard events
     var KEY_DW  = 40;
     var KEY_RT  = 39;
@@ -222,6 +222,8 @@
 
         if (!target) { return; }
         if (!target.match || !target.replace) { target = target.toString(); }
+
+        target = $sanitize(target);
 
         if (scope.matchAllTokens) {
 
